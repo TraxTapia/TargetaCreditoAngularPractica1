@@ -1,0 +1,79 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <section class="vh-100">
+        <div class="container py-5 h-100">
+          <div class="row d-flex align-items-center justify-content-center">
+            <div class="col-md-8 col-lg-9">
+              <div class="card">
+                <div class="card-body">
+                  <h3>LOGIN</h3>
+                  <form [formGroup]="frmLogin" (ngSubmit)="Login()">
+                    <div class="form-group mb-2">
+                      <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text" id="_email"
+                          ><i
+                            class="fa-solid fa-user"
+                            [class.green-icon]="
+                              this.frmLogin.get('email')?.valid
+                            "
+                            [class.red-icon]="
+                              this.frmLogin.get('email')?.invalid &&
+                              this.frmLogin.get('email')?.touched
+                            "
+                          ></i
+                        ></span>
+                        <input
+                          formControlName="email"
+                          type="email"
+                          class="form-control"
+                          placeholder="email"
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group mb-2">
+                      <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text" id="_password"
+                          ><i
+                            class="fa-solid fa-key"
+                            [class.green-icon]="
+                              this.frmLogin.get('password')?.valid
+                            "
+                            [class.red-icon]="
+                              this.frmLogin.get('password')?.invalid &&
+                              this.frmLogin.get('password')?.touched
+                            "
+                          ></i
+                        ></span>
+                        <input
+                          formControlName="password"
+                          type="password"
+                          class="form-control"
+                          placeholder="password"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                      <button
+                        [disabled]="this.frmLogin.invalid"
+                        type="submit"
+                        class="btn btn-primary btn-lg"
+                      >
+                        Login
+                        <i class="fa fa-sign-in"></i>
+                      </button>
+                      <a router-link="./tarjetaCredito" class="btn btn-success"
+                        >Ir otra pagina</a
+                      >
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
